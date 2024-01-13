@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import {operations} from './Data.js';
-import OperationButton from './OperationButton.js'
+import OperationButton from './OperationButton.js';
+import OutputSection from './OutputSection.js';
 
 
 const InputOutputSection = ()=> {  
     
-    const [calcMessage, setCalcMessage] = useState('');
-    const [calcResult, setCalcResult] = useState('');
-    const [messageClass, setMessageClass] = useState('');
+    // const [calcMessage, setCalcMessage] = useState('');
+    // const [calcResult, setCalcResult] = useState('');
+    // const [messageClass, setMessageClass] = useState('');
+
+    const [outputDetails, setOutputDetails] = useState({outputStatus:'', response:'', statusClass:''});
 
 
     function isValid(value) {
@@ -84,7 +87,7 @@ const InputOutputSection = ()=> {
                 break;
 
             case 'MULTIPLY':
-                result = Number(input1) * Number(input2);
+                result = (Number(input1) * Number(input2)).toFixed(3);
                 break;
             
             case 'DIVIDE':
@@ -101,14 +104,18 @@ const InputOutputSection = ()=> {
 
     function updateOutputDisplay(validInput, response) {
         if (!validInput) {
-            setCalcMessage('FAILURE!');    
-            setCalcResult(response);
-            setMessageClass('failure');
+            // setCalcMessage('FAILURE!');    
+            // setCalcResult(response);
+            // setMessageClass('failure');
+
+            setOutputDetails({outputStatus:'FAILURE!', response:response, statusClass:'failure'});
         }    
         else {
-            setCalcMessage('SUCCESS');
-            setMessageClass('success');
-            setCalcResult(response);
+            // setCalcMessage('SUCCESS');
+            // setMessageClass('success');
+            // setCalcResult(response);
+
+            setOutputDetails({outputStatus:'SUCCESS!', response:response, statusClass:'success'});
         }    
     }    
 
@@ -142,10 +149,12 @@ const InputOutputSection = ()=> {
                 
             </form>
 
-            <div className="output-container">
+            {/* <div className="output-container">
                 <p className={`output-message ${messageClass}`}>{calcMessage}</p>
                 <p className="output-result">{calcResult}</p>
-            </div>
+            </div> */}
+
+            <OutputSection outputDetails={outputDetails}></OutputSection>
         </div>
     )
     
