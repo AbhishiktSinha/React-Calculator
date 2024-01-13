@@ -138,8 +138,7 @@
                 transition: 0.2s;
             }
             .operation-button:active {
-                transform: translateY(1.2px);
-                transform: scale(0.95);
+                transform: translateY(1.2px) scale(0.95);            
             }
 
 
