@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Montserrat';
+}
+
+:root {
+    --black: #2b2b2b;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+.calculator-outer-container {
+    width: 360px;
+    min-width: 340px;   
+    aspect-ratio: 1;     
+
+    border-radius: 12px;
+    
+    z-index: 400;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+.calculator-outer-container::after {
+    content: '';
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+
+    width: 110%;
+    height: 110%;
+
+    border-radius: 12px;
+    filter: blur(10px);
+
+    background: linear-gradient(to top right, pink, purple);
+    z-index: -2;    
+    opacity: 0.5;
+
+}
+
+.calculator-body-container {
+    width: 100%;
+    height: 100%;
+    border: 12px;
+
+    background-color: white;
+
+    padding: 24px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    row-gap: 15px
+}
+
+.main-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+    #calculator_form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+        .input-field-container {
+            display: flex;
+            align-items: center;
+            
+            border: 0.5px solid var(--black);
+        }
+            input[type="text"] {
+                flex-grow: 1;
+                border: none;
+                outline: none;
+
+                padding-inline: 8px;
+                padding-block: 4px;
+
+                color: #0e0880;
+                font-family: 'Montserrat';
+                font-weight: 700;
+                font-size: 18px;
+            }
+            input[type="text"]::placeholder {
+                color: var(--black);
+                font-family: 'Montserrat';
+                font-weight: 700;
+                font-size: 18px;
+            }
+
+        
+        .operation-buttons-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 12px;
+        }
+            .operation-button {
+                color: white;
+                background-color: var(--black);
+                font-size: 18px;
+                font-weight: 700;
+
+                border: none;
+                outline: none;
+                border-radius: 8px;
+
+                width: 50px;
+                min-width: 40px;
+                aspect-ratio: 1;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                cursor: pointer;
+                transition: 0.2s;
+            }
+            .operation-button:active {
+                transform: translateY(1.2px);
+                transform: scale(0.95);
+            }
+
+
+    .output-container {
+        margin-top: 12px;
+        
+        display: flex;
+        align-items: center;
+
+        flex-direction: column;
+        row-gap: 10px;
+    }
+        .output-message {
+            font-weight: 700;
+        }
+            .success {
+                color: seagreen;
+            }
+            .failure {
+                color: #de2424;
+            }
+        .output-result {
+            font-weight: 700;
+        }
